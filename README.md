@@ -14,11 +14,11 @@
 
 ## Overview
 
-**CS2 Server Manager** is a WPF desktop application built with .NET 8 and C# 12.  
+**CS2 Server Manager** is a WPF desktop application built with .NET 8 and C#.
 It simplifies the process of creating, configuring, launching, and managing Counter-Strike 2 server instances.  
 The application integrates SteamCMD for downloading server files and supports installing and managing plugins such as CounterStrikeSharp and Metamod.
 
-![Dashboard](placeholder_for_dashboard_screenshot.png)
+![Dashboard](https://numinux.de/pics/dashboard.png)
 
 ---
 
@@ -28,7 +28,7 @@ The application integrates SteamCMD for downloading server files and supports in
   Create, edit, start, stop, and delete server instances. New servers are automatically assigned names and ports, with configs saved in JSON.
 
 - **Automated File Downloads**  
-  Server files are fetched via SteamCMD and updated asynchronously without blocking the UI.
+  Server files are fetched via SteamCMD and updated
 
 - **Process Control**  
   Launch or terminate server processes with dynamic configuration loading.
@@ -41,17 +41,6 @@ The application integrates SteamCMD for downloading server files and supports in
 
 - **Workshop Map Integration**  
   Download and install workshop maps directly within the Server Manager.
-
----
-
-## Technologies
-
-- **.NET 8 & C# 12**: Modern async programming
-- **WPF**: Rich desktop UI
-- **HttpClient & Async/Await**: Async downloads
-- **JSON Serialization**: Using Newtonsoft.Json & System.Text.Json
-- **NLog**: Logging & diagnostics
-- **System.IO.Compression**: ZIP extraction
 
 ---
 
@@ -100,7 +89,7 @@ The application integrates SteamCMD for downloading server files and supports in
 2. New instance gets name + port assigned
 3. A `settings.json` is generated and shown in the dashboard
 
-![New Server](placeholder_for_new_server_screenshot.png)
+![New Server](https://numinux.de/pics/createserver.png)
 
 ### Setting Up the Server Environment
 
@@ -109,12 +98,14 @@ The application integrates SteamCMD for downloading server files and supports in
 3. Confirm the operation
 4. SteamCMD handles the download; console shows progress
 
+![Download](https://numinux.de/pics/download.png)
+
 ### Managing Server Processes
 
 - Use **Start ▶️** and **Stop ⏹️** to control processes
 - Config is read from `settings.json`
 
-![Server Controls](placeholder_for_server_controls_screenshot.png)
+![Server Controls](https://numinux.de/pics/startstop.png)
 
 ### Editing Server Settings
 
@@ -123,7 +114,7 @@ The application integrates SteamCMD for downloading server files and supports in
 3. Specify Workshop ID for maps
 4. Save to update config
 
-![Settings](placeholder_for_server_settings_screenshot.png)
+![Settings](https://numinux.de/pics/edit.png)
 
 ### Plugin Management
 
@@ -157,7 +148,7 @@ The application integrates SteamCMD for downloading server files and supports in
 - Use **Toggle Console** to hide/show  
 - Logs saved in app directory
 
-![Console](placeholder_for_console_screenshot.png)
+![Console](https://numinux.de/pics/console.png)
 
 ---
 
@@ -211,12 +202,16 @@ Add your own launch params for advanced configurations.
 
 ## Roadmap / TO-DO
 
-- ✅ Extended Plugin Support with update checks  
-- ✅ Improved Error Handling and logging  
-- 🛠 Server Monitoring Dashboard  
-- 🛠 MVVM Pattern refactor  
-- 🌍 Multilingual Interface  
-- 🔄 Auto-Updater System  
+- [ ] 🔌 **Plugin System**: Installation via URL/ZIP, Config Editor, Enable/Disable, Update Checks  
+- [ ] 📊 **Server Monitoring**: Real-time Stats, CPU/Memory Usage, Log Viewer with Filters, Performance Graphs  
+- [ ] 🗺️ **Map Management**: Workshop Browser, Custom Rotation, Map Voting  
+- [ ] 💾 **Backups**: Scheduled Backups, One-Click Restore, Cloud Integration (Google Drive, Dropbox)  
+- [ ] 🧩 **Server Templates**: Predefined Configs, Export/Import, Community Sharing  
+- [ ] 👮 **Admin Tools**: Steam ID Management, Permission Groups, Admin Command Interface  
+- [ ] 🌐 **Multi-Server Support**: Central Dashboard, Resource Optimization, Cross-Server Player Management  
+- [ ] ⚙️ **Config Editor**: GUI-Based Editing, Validation & Error Detection, Version Control  
+- [ ] 🔗 **Integrations**: Discord Bot, Web Panel for Remote Control, Mobile Companion App  
+
 
 ---
 
@@ -253,7 +248,6 @@ See the `LICENSE` file for more info.
 ## Acknowledgments
 
 - 🙏 Valve for CS2 & SteamCMD  
-- 🙏 CounterStrikeSharp & Metamod devs  
-- 🙏 Community support & feedback  
+- 🙏 CounterStrikeSharp [Link](https://github.com/roflmuffin/CounterStrikeSharp) & Metamod devs [Link](https://www.metamodsource.net/)   
 
 > *CS2 Server Manager is not affiliated with or endorsed by Valve. Counter-Strike is a registered trademark of Valve Corporation.*
