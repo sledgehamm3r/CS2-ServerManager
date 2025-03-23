@@ -1,3 +1,6 @@
+
+# CS2 Server Manager
+
 <div align="center">
   <h1>CS2 Server Manager</h1>
   <p>
@@ -11,37 +14,44 @@
 
 ## Overview
 
-CS2 Server Manager is a WPF desktop application built with .NET 8 and C# 12. It simplifies the process of creating, configuring, launching, and managing CounterStrike 2 server instances. The application integrates SteamCMD for downloading server files and supports installing and managing plugins such as CounterStrikeSharp and Metamod.
+**CS2 Server Manager** is a WPF desktop application built with .NET 8 and C# 12.  
+It simplifies the process of creating, configuring, launching, and managing Counter-Strike 2 server instances.  
+The application integrates SteamCMD for downloading server files and supports installing and managing plugins such as CounterStrikeSharp and Metamod.
+
+![Dashboard](placeholder_for_dashboard_screenshot.png)
 
 ---
 
 ## Features
 
-- **Server Instance Management:**  
-  Create, edit, start, stop, and delete server instances. New servers are automatically assigned names and ports, and their configurations are saved in JSON files.
+- **Server Instance Management**  
+  Create, edit, start, stop, and delete server instances. New servers are automatically assigned names and ports, with configs saved in JSON.
 
-- **Automated File Downloads:**  
-  Fetched via SteamCMD, server files are downloaded and updated asynchronously without blocking the UI.
+- **Automated File Downloads**  
+  Server files are fetched via SteamCMD and updated asynchronously without blocking the UI.
 
-- **Process Control:**  
-  Easily launch or terminate server processes, with configurations loaded dynamically from stored settings.
+- **Process Control**  
+  Launch or terminate server processes with dynamic configuration loading.
 
-- **Configuration Editing:**  
-  Edit server properties such as port, map, game mode, tick rate, maximum players, and security flags through a dedicated settings dialog.
+- **Configuration Editing**  
+  Modify port, map, game mode, tick rate, max players, and security flags via a settings dialog.
 
-- **Plugin Management:**  
-  Install plugins automatically (e.g., CounterStrikeSharp) with downloaded ZIP packages or upload them manually, ensuring smooth operation and maintenance.
+- **Plugin Management**  
+  Automatically install plugins like CounterStrikeSharp or upload manually for easy maintenance.
+
+- **Workshop Map Integration**  
+  Download and install workshop maps directly within the Server Manager.
 
 ---
 
 ## Technologies
 
-- **.NET 8 & C# 12:** Modern and efficient asynchronous programming.
-- **WPF (Windows Presentation Foundation):** Provides a rich desktop user interface.
-- **HttpClient & Async/Await:** Ensure asynchronous file operations and downloads.
-- **JSON Serialization:** Uses Newtonsoft.Json and System.Text.Json for configuration storage.
-- **NLog:** For comprehensive logging and error diagnostics.
-- **System.IO.Compression:** Extracts ZIP packages for SteamCMD and plugins.
+- **.NET 8 & C# 12**: Modern async programming
+- **WPF**: Rich desktop UI
+- **HttpClient & Async/Await**: Async downloads
+- **JSON Serialization**: Using Newtonsoft.Json & System.Text.Json
+- **NLog**: Logging & diagnostics
+- **System.IO.Compression**: ZIP extraction
 
 ---
 
@@ -49,78 +59,201 @@ CS2 Server Manager is a WPF desktop application built with .NET 8 and C# 12. It 
 
 ### Prerequisites
 
-- [.NET 8 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
-- [Visual Studio 2022](https://visualstudio.microsoft.com/vs/)
-- A Windows OS with permission to create directories in the Documents folder
+- .NET 8 Runtime or SDK  
+- Windows OS with folder creation permission in `%USERPROFILE%\Documents`  
+- Stable internet connection  
 
-### Steps
+### Steps for End Users
 
-1. **Clone the Repository**  
-   Clone the repository to your local machine and open it in Visual Studio 2022.
+1. **Download the Application**  
+   Get the latest release from the [Releases](#) page.
+
+2. **Run the Application**  
+   - First launch creates `%USERPROFILE%\Documents\CS2ServerManager`  
+   - Downloads and extracts SteamCMD if needed  
+   - Loads existing server configs from JSON  
+
+### Steps for Developers
+
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/sledgehamm3r/CS2-ServerManager.git
+   cd CS2-ServerManager
+   ```
 
 2. **Restore NuGet Packages**  
-   Ensure all dependencies (e.g., `Newtonsoft.Json`, `NLog`) are properly restored.
+   Open the solution in Visual Studio and ensure all dependencies are installed.
 
 3. **Build the Project**  
-   Compile the solution—all projects target .NET 8.
+   All projects target .NET 8.
 
 4. **Run the Application**  
-   On first launch:
-   - A base folder is created at `%USERPROFILE%\Documents\CS2ServerManager` to store server data, settings, SteamCMD, and logs.
-   - SteamCMD is automatically downloaded and extracted if not available.
-   - Existing server configurations (if any) are loaded from JSON files.
+   Start via Visual Studio or run the compiled EXE.
 
 ---
 
 ## Usage
 
 ### Creating a New Server
-- Click the **Create Server** button.
-- A new server instance is generated with an automatically assigned name and port.
-- A `settings.json` file is created for that server, and the instance is displayed in the dashboard.
+
+1. Click **Create Server**
+2. New instance gets name + port assigned
+3. A `settings.json` is generated and shown in the dashboard
+
+![New Server](placeholder_for_new_server_screenshot.png)
+
+### Setting Up the Server Environment
+
+1. Select your server
+2. Click **Download Server Files ⬇️**
+3. Confirm the operation
+4. SteamCMD handles the download; console shows progress
 
 ### Managing Server Processes
-- Use the **Start** (▶️) and **Stop** (⏹️) buttons in the dashboard to launch or terminate server processes.
-- The server reads its configuration from the associated `settings.json` file when starting.
+
+- Use **Start ▶️** and **Stop ⏹️** to control processes
+- Config is read from `settings.json`
+
+![Server Controls](placeholder_for_server_controls_screenshot.png)
 
 ### Editing Server Settings
-- Click the **Edit** (✏️) button to open the server settings dialog.
-- Update parameters such as port, map, game mode, token, tick rate, and max players.
-- For custom maps, selecting “custom” reveals an input field to specify the map.
-- Save your changes to update the configuration file.
 
-### Downloading Server Files
-- Click the **Download Server Files** (⬇️) button for the desired server instance.
-- SteamCMD will download and update the server files asynchronously.
-- Progress and log messages appear in the console output panel at the bottom.
+1. Click **Edit ✏️**
+2. Modify port, map, game mode, token, tick rate, etc.
+3. Specify Workshop ID for maps
+4. Save to update config
+
+![Settings](placeholder_for_server_settings_screenshot.png)
 
 ### Plugin Management
-- **Automatic Plugin Installation:**  
-  Within the edit dialog, you can install plugins like CounterStrikeSharp. The application downloads, extracts, and deploys the plugin automatically.
-  
-- **Manual Plugin Upload:**  
-  Alternatively, you can manually upload a plugin ZIP file. The system checks for any existing plugin with the same name and prompts for an overwrite if necessary.
+
+#### Installing CounterStrikeSharp
+
+1. Open Edit Dialog  
+2. Enable "Install CounterStrikeSharp"  
+3. Save settings – plugin will auto-download & deploy
+
+#### Managing Plugins
+
+1. Check installed plugins in settings  
+2. They load automatically with the server
+
+### Downloading Workshop Maps
+
+1. Select server  
+2. Enter Workshop ID in settings  
+3. Click **Download Workshop Item**  
+4. Map becomes available to the server
+
+### Server Configuration Files
+
+- Defaults: `server.cfg`, `5v5.cfg`, `2v2.cfg`, `deathmatch.cfg`, `prac.cfg`  
+- Configs located in:  
+  `Documents\CS2ServerManager\[ServerName]\CS2ServerFiles\game\csgo\cfg\`
+
+### Console and Logging
+
+- Bottom area = console + status info  
+- Use **Toggle Console** to hide/show  
+- Logs saved in app directory
+
+![Console](placeholder_for_console_screenshot.png)
 
 ---
 
-## RoadMap / TO-DO
+## Advanced Features
 
-- **Extended Plugin Support:**  
-  Integrate more plugins with automated version checking and update mechanisms.
+### RCON Support
 
-- **Enhanced Error Handling:**  
-  Implement advanced logging and user-friendly error messages for smoother troubleshooting.
+With RCON password set, you can:
 
-- **Server Monitoring Dashboard:**  
-  Develop a comprehensive dashboard for real-time server performance monitoring and logging.
+- Send remote commands  
+- Query server status  
+- Properly shut down server  
 
-- **MVVM Refactoring:**  
-  Transition the codebase to use the MVVM pattern for improved maintainability and testability.
+### Automatic Restart
+
+Enable "Auto Restart" to restart the server on crash.
+
+### Server Tags
+
+Add tags to help users discover your server.
+
+### Custom Launch Parameters
+
+Add your own launch params for advanced configurations.
+
+---
+
+## Troubleshooting
+
+### SteamCMD Issues
+
+- **Download Errors**: Check internet, retry  
+- **Not Starting**: Delete SteamCMD folder, restart app
+
+### Server Launch Problems
+
+- **Won’t Start**: Ensure port isn't used  
+- **Steam Token Error**: Set a valid Game Server Token
+
+### Plugin Issues
+
+- **CounterStrikeSharp Not Working**: Check Metamod + gameinfo.gi  
+- **Plugin Conflicts**: Disable plugins one by one
+
+### Checking Logs
+
+- Check app directory log files  
+- Review console output for clues
+
+---
+
+## Roadmap / TO-DO
+
+- ✅ Extended Plugin Support with update checks  
+- ✅ Improved Error Handling and logging  
+- 🛠 Server Monitoring Dashboard  
+- 🛠 MVVM Pattern refactor  
+- 🌍 Multilingual Interface  
+- 🔄 Auto-Updater System  
+
+---
+
+## Contributing
+
+Contributions are welcome!
+
+1. Fork the repo  
+2. Create a branch:
+   ```bash
+   git checkout -b feature/amazing-feature
+   ```
+3. Commit your changes:
+   ```bash
+   git commit -m 'Add some amazing feature'
+   ```
+4. Push:
+   ```bash
+   git push origin feature/amazing-feature
+   ```
+5. Open a Pull Request
+
+Please follow coding standards and include tests if possible.
 
 ---
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the **MIT License**.  
+See the `LICENSE` file for more info.
 
 ---
+
+## Acknowledgments
+
+- 🙏 Valve for CS2 & SteamCMD  
+- 🙏 CounterStrikeSharp & Metamod devs  
+- 🙏 Community support & feedback  
+
+> *CS2 Server Manager is not affiliated with or endorsed by Valve. Counter-Strike is a registered trademark of Valve Corporation.*
