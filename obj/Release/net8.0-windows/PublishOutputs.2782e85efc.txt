@@ -1,0 +1,13 @@
+C:\Users\ronny\Desktop\CS2ServerManager\CS2ServerManager.exe
+C:\Users\ronny\Desktop\CS2ServerManager\NLog.config
+C:\Users\ronny\Desktop\CS2ServerManager\CS2ServerManager.dll
+C:\Users\ronny\Desktop\CS2ServerManager\CS2ServerManager.deps.json
+C:\Users\ronny\Desktop\CS2ServerManager\CS2ServerManager.runtimeconfig.json
+C:\Users\ronny\Desktop\CS2ServerManager\CS2ServerManager.pdb
+C:\Users\ronny\Desktop\CS2ServerManager\MaterialDesignColors.dll
+C:\Users\ronny\Desktop\CS2ServerManager\MaterialDesignThemes.Wpf.dll
+C:\Users\ronny\Desktop\CS2ServerManager\Microsoft.Xaml.Behaviors.dll
+C:\Users\ronny\Desktop\CS2ServerManager\Newtonsoft.Json.dll
+C:\Users\ronny\Desktop\CS2ServerManager\NLog.dll
+C:\Users\ronny\Desktop\CS2ServerManager\Wpf.Ui.dll
+C:\Users\ronny\Desktop\CS2ServerManager\Wpf.Ui.Abstractions.dll

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>CS2ServerManager</id>
+    <version>1.0.0</version>
+    <authors>CS2ServerManager</authors>
+    <description>Package Description</description>
+    <repository type="git" />
+    <dependencies>
+      <group targetFramework="net8.0-windows7.0">
+        <dependency id="NLog" version="5.4.0" exclude="Build,Analyzers" />
+        <dependency id="Newtonsoft.Json" version="13.0.3" exclude="Build,Analyzers" />
+        <dependency id="WPF-UI" version="4.0.2" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+    <frameworkReferences>
+      <group targetFramework="net8.0-windows7.0">
+        <frameworkReference name="Microsoft.WindowsDesktop.App.WPF" />
+      </group>
+    </frameworkReferences>
+    <contentFiles>
+      <files include="any/net8.0-windows7.0/NLog.config" buildAction="Content" />
+    </contentFiles>
+  </metadata>
+  <files>
+    <file src="C:\Users\ronny\Desktop\Programmierungen\CS2ServerManager\CS2ServerManager\bin\Debug\net8.0-windows\CS2ServerManager.runtimeconfig.json" target="lib\net8.0-windows7.0\CS2ServerManager.runtimeconfig.json" />
+    <file src="C:\Users\ronny\Desktop\Programmierungen\CS2ServerManager\CS2ServerManager\bin\Debug\net8.0-windows\CS2ServerManager.dll" target="lib\net8.0-windows7.0\CS2ServerManager.dll" />
+    <file src="C:\Users\ronny\Desktop\Programmierungen\CS2ServerManager\CS2ServerManager\NLog.config" target="content\NLog.config" />
+    <file src="C:\Users\ronny\Desktop\Programmierungen\CS2ServerManager\CS2ServerManager\NLog.config" target="contentFiles\any\net8.0-windows7.0\NLog.config" />
+  </files>
+</package>
